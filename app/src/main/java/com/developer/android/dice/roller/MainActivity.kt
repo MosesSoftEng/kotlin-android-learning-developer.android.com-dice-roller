@@ -2,11 +2,15 @@ package com.developer.android.dice.roller
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+
+// Declared as private so that it will only be accessible in MainActivity.kt.
+private const val TAG = "MainActivity"
 
 /**
  * This activity allows the user to roll a dice and view the result
@@ -16,6 +20,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        logging()
 
         /*
          * Button object reference - Create and assign button variable.
@@ -113,6 +119,13 @@ class MainActivity : AppCompatActivity() {
         // Update the screen with the dice roll
 //        val resultTextView1: TextView = findViewById(R.id.textView1)
 //        resultTextView1.text = diceRoll1.toString()
+    }
+
+    /**
+     * Function to verbose log.
+     */
+    fun logging() {
+        Log.v(TAG, "Hello, world!")
     }
 
     /**
