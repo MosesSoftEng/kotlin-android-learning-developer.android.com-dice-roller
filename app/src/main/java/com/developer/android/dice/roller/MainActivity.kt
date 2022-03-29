@@ -32,11 +32,35 @@ class MainActivity : AppCompatActivity() {
              */
             val resultTextView: TextView = findViewById(R.id.textView)
             resultTextView.text = "6"
+
+            rollDice()
         }
 
         // or
 //        rollButton.setOnClickListener(View.OnClickListener {
 //
 //        })
+    }
+
+    private fun rollDice() {
+        val dice = Dice(6);
+        val diceRoll = dice.roll()
+        val resultTextView: TextView = findViewById(R.id.textView)
+        resultTextView.text = diceRoll.toString()
+    }
+
+    /*
+     * Inner Class Dice
+     */
+    class Dice(
+        private val numSides: Int // Constructor Parameter 1
+    ) {
+
+        /*
+         * Function
+         */
+        fun roll(): Int /*Return type*/{
+            return (1..numSides).random()
+        }
     }
 }
